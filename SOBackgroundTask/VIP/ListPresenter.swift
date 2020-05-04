@@ -26,6 +26,7 @@ class ListPresenter: ListPresentationprotocol {
     }
     
     func setNewData() {
+        print("setNewData")
         var estimatedCount = 0
         let collections = PHAssetCollection.fetchAssetCollections(with: .album, subtype: .any, options: nil)
         collections.enumerateObjects { (collection, idx, stop) in
@@ -36,6 +37,7 @@ class ListPresenter: ListPresentationprotocol {
     }
     
     func clearData() {
+        print("clearData")
         interator?.clearData()
     }
 }

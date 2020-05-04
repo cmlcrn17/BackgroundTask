@@ -27,6 +27,8 @@
 	<true/>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>This App get Image for internal perpose</string>
+	<key>LSApplicationCategoryType</key>
+	<string></string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>fetch</string>

@@ -50,6 +50,7 @@ extension AppDelegate {
         request.requiresExternalPower = false
         
         request.earliestBeginDate = Date(timeIntervalSinceNow: 1 * 60) // Featch Image Count after 1 minute.
+        print("scheduleImageFetcher");
         //Note :: EarliestBeginDate should not be set to too far into the future.
         do {
             try BGTaskScheduler.shared.submit(request)
@@ -61,6 +62,7 @@ extension AppDelegate {
     func scheduleAppRefresh() {
         let request = BGAppRefreshTaskRequest(identifier: "com.SO.apprefresh")
         request.earliestBeginDate = Date(timeIntervalSinceNow: 2 * 60) // App Refresh after 2 minute.
+        print("scheduleAppRefresh");
         //Note :: EarliestBeginDate should not be set to too far into the future.
         do {
             try BGTaskScheduler.shared.submit(request)
@@ -70,6 +72,7 @@ extension AppDelegate {
     }
     
     func handleAppRefreshTask(task: BGAppRefreshTask) {
+        print("handleAppRefreshTask");
         //Todo Work
         /*
          //AppRefresh Process
@@ -84,8 +87,9 @@ extension AppDelegate {
     }
     
     func handleImageFetcherTask(task: BGProcessingTask) {
+        print("handleImageFetcherTask");
         scheduleImageFetcher() // Recall
-        
+
         //Todo Work
         task.expirationHandler = {
             //This Block call by System
