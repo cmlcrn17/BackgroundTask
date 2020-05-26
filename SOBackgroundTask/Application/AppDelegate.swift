@@ -91,12 +91,19 @@ extension AppDelegate {
     func handleImageFetcherTask(task: BGProcessingTask) {
         print("handleImageFetcherTask");
         scheduleImageFetcher() // Recall
-
+        
         //Todo Work
         task.expirationHandler = {
             //This Block call by System
             //Canle your all tak's & queues
         }
+        
+        //Get & Set New Data
+        let interator =  ListInterator()
+        let presenter =  ListPresenter()
+        presenter.interator = interator
+        
+        presenter.setNewData()
         
         var value = self.prefs.integer(forKey: "VALUE")
         value = value + 1
@@ -109,33 +116,33 @@ extension AppDelegate {
     }
     
     ///Notification oluşturur ve gönderim isteği yapar.
-     func createNotfications(newValue:Int, message: String) {
-         print("createNotfications")
-         
-         //Bildirim olarak gönderilmemiş istekleri temizler.
-         center.removeAllPendingNotificationRequests()
-         
-         let content = UNMutableNotificationContent()
-         content.title = "Artış yapıldı."
-         content.body = "Belirtilen değer arttırıldı. Yeni Değer -> \(String(newValue)) -> Mesaj \(message)"
-         content.categoryIdentifier = "alarm"
-         content.userInfo = ["customData": "fizzbuzz"]
-         content.sound = UNNotificationSound.default
-         
-         //Takvim Tetikleyicisi
-         /*
-          var dateComponents = DateComponents()
-          dateComponents.hour = 10
-          dateComponents.minute = 30
-          let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
-          */
-         
-         //Saniye bazında Tetikleyici
-         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 60, repeats: true)
-         let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
-         center.add(request)
-         
-     }
+    func createNotfications(newValue:Int, message: String) {
+        print("createNotfications")
+        
+        //Bildirim olarak gönderilmemiş istekleri temizler.
+        center.removeAllPendingNotificationRequests()
+        
+        let content = UNMutableNotificationContent()
+        content.title = "Artış yapıldı."
+        content.body = "Belirtilen değer arttırıldı. Yeni Değer -> \(String(newValue)) -> Mesaj \(message)"
+        content.categoryIdentifier = "alarm"
+        content.userInfo = ["customData": "fizzbuzz"]
+        content.sound = UNNotificationSound.default
+        
+        //Takvim Tetikleyicisi
+        /*
+         var dateComponents = DateComponents()
+         dateComponents.hour = 10
+         dateComponents.minute = 30
+         let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
+         */
+        
+        //Saniye bazında Tetikleyici
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 60, repeats: true)
+        let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+        center.add(request)
+        
+    }
 }
 
 //MARK:- Notification Helper
