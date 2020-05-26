@@ -34,6 +34,6 @@ Below are the steps to follow in order to implement the above mentioned demo:
 
 
 **New Screen**
-[ScreenShot](https://github.com/cmlcrn17/BackgroundTask/blob/master/ScreenShot.png)
+![ScreenShot](https://github.com/cmlcrn17/BackgroundTask/blob/master/ScreenShot.png)
 
 
