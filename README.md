@@ -33,7 +33,8 @@ Below are the steps to follow in order to implement the above mentioned demo:
 9. Create scheduleImagefetcher() and scheduleAppRefresh() method for fetching images from the gallery and refresh app once image fetch is completed. These methods are called from applicationDidEnterBackground.
 
 
-**New Screen**
+## New Screen
+
 ![ScreenShot](https://github.com/cmlcrn17/BackgroundTask/blob/master/ScreenShot.png)
 
 
